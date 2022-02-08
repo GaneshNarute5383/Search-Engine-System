@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+  <meta charset="UTF-8">
+    <title>study tools</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/n_jobs_on_two_machiens.css' %}">
+    <link rel = "icon" href ="{% static 'image/swastika.jpg'%}" type = "image/x-icon">
+    <script src="{% static 'javascript/all.min.js' %}"></script>
+    <script src="{% static 'javascript/bootstrap.min.js' %}"></script>
+    <script src="{% static 'javascript/jquery-3.6.0.min.js' %}"></script>
+    <script src="{% static 'javascript/popper.min.js' %}"></script>
+  <script>
+    jQuery(document).ready(function(){
+    $("#myform").submit(function(e){
+    e.preventDefault();
+    var jobs = $("#txt1").val();
+    var m1times = $("#txt2").val();
+    var m2times = $("#txt3").val();
+    if ((jobs !='') && (m1times !='') && (m2times !=''))
+    {
+        $.ajax({
+        url:"/cal_n_jobs_on_two_machiens/",
+        type:"GET",
+        data:{ j:jobs,m1t:m1times,m2t:m2times },
+        success:function(response){
+
+        $(".answerContent").html(response);
+
+        }
+
+        });
+    }
+    else
+    {
+        alert(" Please enter data in all fields")
+    }
+
+    });
+
+    $("#txt1").keyup(function(){
+    var value = $("#txt1").val();
+    console.log(value)
+    $("#txt11").val(value);
+    var data = $("#txt11").val();
+    console.log(data);
+    });
+
+    $("#txt2").keyup(function(){
+    var value = $("#txt2").val();
+    console.log(value)
+    $("#txt12").val(value);
+    var data = $("#txt12").val();
+    console.log(data);
+    });
+
+    $("#txt3").keyup(function(){
+    var value = $("#txt3").val();
+    console.log(value)
+    $("#txt13").val(value);
+    var data = $("#txt13").val();
+    console.log(data);
+    });
+
+
+    });
+
+
+
+
+  </script>
+</head>
+<body>
+<div class="Container">
+<div class="header">
+    <img id="swastika" src="{% static 'image/swastika.jpg' %}">
+    <img id="LordGanesh" src="{% static 'image/LordGanesh.jpg' %}">
+    <img id="LordSaraswati" src="{% static 'image/LordSaraswati.jpg' %}">
+  <span>ePavitram</span>
+<div class="motto">
+    Nothing Beautiful Than Truth
+</div>
+
+
+</div>
+<div class="question">
+  <form action="#" method="GET" id="myform">
+   {% csrf_token %}
+    <label id="l0" name="l0">N jobs on two machines</label>
+    <label id="l1" name="l1">Enter jobs</label>
+    <input type="text" id="txt1" name="txt1" placeholder="Enter jobs">
+    <label id="l2" name="l2">Enter time of jobs on the M1 machien </label>
+    <input type="text" id="txt2" name="txt2" placeholder="Enter time of jobs on the M1 machien" >
+    <label id="l3" name="l3">Enter time of jobs on the M2 machien </label>
+    <input type="text" id="txt3" name="txt3" placeholder="Enter time of jobs on the M2 machien">
+    <input type="submit" id="calculate" name="calculate" value="Calculate">
+
+  </form>
+    <a href="{% url 'n_jobs_on_two_machiens' %}"><input type="button" id="clear" name="clear" value="Clear"></a>
+</div>
+
+
+  <div class="answer">
+        <label id="l4" name="l4">Answer</label>
+        <div class="answerContent"> </div>
+        <div class="pdf">
+       <form action="{% url 'pdf' %}" method="get">
+           {% csrf_token %}
+            <input id='pdfbutton' type="submit" value="PDF">
+            <input type="text" name="txt11" id="txt11" value=" " >
+            <input type="text" name="txt12" id="txt12" >
+            <input type="text" name="txt13" id="txt13" >
+
+        </form>
+
+      </div>
+  </div>
+</div>
+</body>
+</html>

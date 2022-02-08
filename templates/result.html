@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>result</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/result.css' %}">
+    <link rel = "icon" href ="{% static 'image/swastika.jpg'%}" type = "image/x-icon">
+    <script src="{% static 'javascript/all.min.js' %}"></script>
+    <script src="{% static 'javascript/bootstrap.min.js' %}"></script>
+    <script src="{% static 'javascript/jquery-3.6.0.min.js' %}"></script>
+</head>
+<body>
+
+    <script>
+   jQuery(document).ready(function(){
+    $("input").keyup(function(){
+    var query=$("#userinput").val();
+    if (query !='')
+    {
+            $.ajax({url:"/ajax/",
+            type:"GET",
+            data:{q:query},
+            success:function(response)
+            {
+              $(".autosuggestion").html(response);
+              $(".autosuggestion").fadeIn(300);
+
+            }
+            });
+     }else{
+                  $(".autosuggestion").fadeOut();
+                  $(".autosuggestion").html("");
+
+          }
+    });
+    $(document).on("click","li",function(){
+    $("#userinput").val($(this).text());
+    $(".autosuggestion").fadeOut();
+
+    });
+    $("#clearButton").click(function(){
+<!--    console.log("ramkrishna hari")-->
+    $("#userinput").val("")
+
+    })
+   });
+
+
+</script>
+    <div class="headersearch">
+    <div class="HeadingTitle">ePavitram</div>
+    <div class="icon"><a href="{% url 'home' %}"><img src="{% static 'image/swastika.jpg' %}"></a></div>
+    <form id="form-id" action="{% url 'search' %}" method="GET" autocomplete="off" >
+                            {% csrf_token %}
+        <input type="text" name="userinput" id="userinput" value="{{query}}" placeholder="Type to search">
+       <button id="clearButton" type="button"><i class="fas fa-times"></i></button>
+        <button id="SearchButton" type="submit"><i class="fas fa-search"></i></button>
+
+    </form>
+
+         <div class="autosuggestion">
+
+
+         </div>
+    </div>
+<br><br><br><br><br><br><br>
+{% if page_obj %}
+
+    {% for data in page_obj %}
+    <table >
+    <tr>
+        <td>
+            <h5><a href="{{data.webpage_url}}">{{data.webpage_title}}</a></h5>
+        </td>
+    </tr>
+     <tr>
+        <td>
+            <font color="green" ><h7>{{data.webpage_url}}</h7></font>
+        </td>
+    </tr>
+     <tr>
+        <td>
+           <h6> {{data.webpage_description}} </h6>
+        </td>
+    </tr>
+</table>
+    <br>
+{% endfor %}
+{% else %}
+<center><h1><font color="red">Data Not Found</font></h1></center>
+{% endif %}
+<ul></ul>
+{% if paginator.num_pages > 1 %}
+<br>
+<div class="paginationClass">
+<nav aria-label="Page navigation example">
+  <ul class="pagination">
+      {% if page_obj.has_previous %}
+    <li class="page-item"><a class="page-link" href="?page={{page_obj.previous_page_number}}">Previous</a></li>
+      {% endif %}
+    <li class="page-item"><a class="page-link" href="#">{{page_obj.number}} </a> </li>
+      {% if page_obj.has_next %}
+    <li class="page-item"><a class="page-link" href="?page={{page_obj.next_page_number}}">Next</a></li>
+          {% endif %}
+  </ul>
+</nav>
+</div>
+{% endif %}
+<div class="resultCount">
+
+    Total Results : {{ paginator.count}} <br>
+    Total Pages &nbsp; : {{paginator.num_pages}}<br>
+    Total Time &nbsp;&nbsp;&nbsp; : {{ total_time}} sec
+</div>
+<!--<div class="resultHeading">-->
+<!--    Results for : {{find}}<br>-->
+<!--</div>-->
+
+<br>
+<br>
+<br>
+<span class="footer">
+    <p>© Copyright 2021 All Rights Reserved ePavitram</p>
+</span>
+</body>
+</html>

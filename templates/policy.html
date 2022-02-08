@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>policy</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/same.css' %}">
+    <link rel="stylesheet" href="{% static 'css/policy.css' %}">
+    <link rel = "icon" href ="{% static 'image/swastika.jpg'%}" type = "image/x-icon">
+    <script src="{% static 'javascript/all.min.js' %}"></script>
+    <script src="{% static 'javascript/bootstrap.min.js' %}"></script>
+    <script src="{% static 'javascript/jquery.min.js' %}"></script>
+    <script src="{% static 'javascript/popper.min.js' %}"></script>
+</head>
+<body>
+<div>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary ">
+  <div class="container-fluid">
+       <a class="navbar-brand" href="#">
+      <img src="{% static 'image/swastika.jpg'%}" alt="swastika" >
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+        </li>
+          <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'about' %}">About </a>
+        </li>
+          <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'privacy' %}">Privacy</a>
+        </li>
+           <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'policy' %}">Policy</a>
+        </li>
+          <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'check_console' %}">Console</a>
+        </li>
+          <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'contact' %}">Contact</a>
+        </li>
+          <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'feedback' %}">Feedback</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+</div>
+<span class="pen">
+    © Copyright 2021 All Rights Reserved ePavitram
+</span>
+
+
+
+<div class="about">
+    <header> Policy</header>
+    <p>
+        If you like to submit your website in our search engine then we are also like to provide your
+        website in the search result of our ePavitram search engine.
+        We provide general guide lines for submission of website.
+        <br>
+        Website must contain the following meta information so that our ePavitram web crawler can easily
+                    crawl the website for perpose of indexing and store into database.
+        <br>
+        1. Every web page should contain title tag. Which must contain Title of web page.
+        <br>
+        2. Every web page should contain meta tag which must contain the Description of web page.
+        <br>
+         3. Every web page should contain meta tag which must contain Keywords of webpage.
+        <br>
+        4. Your website must have sitemap so that ePavitram web crawler crawl all pages whose URL are
+                    provided into sitemap.
+        <br>
+         5. Your website will be available in the ePavitram search result whithin only one week. After you
+                    have submitted your website.
+        <br>
+        6. If you have any changed in meta information about your website then you must submit url or
+                    sitemap of that web pages.
+        <br>
+        7.Type of website should be multi page application website.
+    </p>
+
+
+</div>
+
+</body>
+</html>

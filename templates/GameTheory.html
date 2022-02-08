@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+  <meta charset="UTF-8">
+    <title>Game Theory</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/game_theory.css' %}">
+    <link rel = "icon"     href ="{% static 'image/swastika.jpg'%}" type = "image/x-icon">
+    <script src="{% static 'javascript/all.min.js' %}"></script>
+    <script src="{% static 'javascript/bootstrap.min.js' %}"></script>
+    <script src="{% static 'javascript/jquery-3.6.0.min.js' %}"></script>
+    <script src="{% static 'javascript/popper.min.js' %}"></script>
+  <script>
+    jQuery("document").ready(function(){
+
+    $("#addrows").click(function(){
+        var rows = $("#rowName").val();
+        var coloulms =$("#columnName").val();
+         var a='<table>'
+
+        for(let i=0 ; i<=rows ; i++)
+        {
+            a=a+"<tr>"
+            for(let j=0 ;j<=coloulms ;j++)
+            {
+               if (i==0 && j==0)
+               {
+                   a=a+"<td><b>AB<b></td>"
+                   continue;
+               }
+               if (i==0 && j!=0)
+               {
+                   a=a+"<td><b> B"+j+"</b></td>"
+               }
+
+               if ((i!=0 && j==0))
+               {
+                   a=a+"<td><b>A"+i+"</b></td>"
+               }
+               else if(i != 0)
+               {
+                   a=a+"<td><input type='text' id="+"id"+i+j+" placeholder="+i+j+" style='width:50px;'></td>"
+               }
+            }
+            a=a+"</tr>"
+        }
+        $(".matrix").html(a)
+    });
+
+
+    $("#myform").submit(function(e){
+    e.preventDefault();
+    var method = $("#Methods").val();
+
+    var number_of_rows = $("#rowName").val();
+    var number_of_coloumns = $("#columnName").val();
+    var str="";
+    for(i=1;i<=number_of_rows;i++)
+    {
+       for(j=1;j<=number_of_coloumns;j++)
+       {
+               var Aij = $("#id"+i+j).val();
+
+                str = str + " " + Aij;
+       }
+
+
+    }
+    console.log("method",method)
+    $.ajax({
+    url:"/gametheory/",
+    type:"GET",
+    data:{data:str,number_of_rows:number_of_rows,number_of_coloumns:number_of_coloumns,method:method },
+    success:function(response)
+    {
+         $(".answerContent").html(response);
+    }
+    });
+    });
+
+});
+
+
+  </script>
+</head>
+<body>
+<div class="Container">
+<div class="header">
+   <a href="{% url 'home' %}"> <img id="swastika" src="{% static 'image/swastika.jpg' %}"></a>
+    <img id="LordGanesh" src="{% static 'image/LordGanesh.jpg' %}">
+    <img id="LordSaraswati" src="{% static 'image/LordSaraswati.jpg' %}">
+  <span>ePavitram</span>
+<div class="motto">
+    Nothing Beautiful Than Truth
+</div>
+
+
+</div>
+<div class="question">
+    <label id="l0" name="l0"><center>Game Theory</center> </label>
+
+  <form action="#" method="GET" id="myform">
+   {% csrf_token %}
+
+      <br>
+      <label id="method">
+          Method
+      </label>
+      <select name="Methods" id="Methods">
+          <option value="PureStrategy">Pure Strategy Method</option>
+          <option value="Dominance">Dominance Method</option>
+          <option value="Algebric">Algebric Method</option>
+          <option value="Arithmetic">Arithmetic Method (Oddments)</option>
+
+      </select><br>
+      <label id="rowsname">Rows</label>
+      <input type="text" name="rowName" id="rowName" >
+     <label id="coloumsname">Coloums</label>
+      <input type="text" name="columnName" id="columnName">
+    <input type="submit" id="Calculate" name="" value="Calculate">
+      <button type="button" id="addrows">Generate</button>
+    <a href="{% url 'gameTheory' %}"><input type="button" id="clear" name="clear" value="Clear"></a>
+
+  </form>
+ <div class="matrix"></div>
+</div>
+  <div class="answer">
+        <label id="l4" name="l4">Answer</label>
+        <div class="answerContent"> </div>
+        <div class="pdf">
+       <form action="{% url 'pdf' %}" method="get">
+           {% csrf_token %}
+            <input id='pdfbutton' type="submit" value="PDF">
+            <input type="text" name="txt11" id="txt11" value=" " >
+            <input type="text" name="txt12" id="txt12" >
+            <input type="text" name="txt13" id="txt13" >
+        </form>
+      </div>
+  </div>
+</div>
+</body>
+</html>

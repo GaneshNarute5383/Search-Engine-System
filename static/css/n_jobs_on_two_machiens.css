@@ -1,0 +1,292 @@
+.Container{
+position:absolute;
+width:100%;
+height:100%;
+background-color:pink;
+
+}
+
+
+
+
+.header{
+position:absolute;
+width:100%;
+height:15%;
+background-color:blue;
+}
+.header img{
+position:absolute;
+width:4%;
+height:50%;
+margin-left:2%;
+margin-top:1%;
+border-radius:10px;
+}
+
+
+.header #heading{
+position:absolute;
+width:30%;
+height:80%;
+margin-left:70%;
+color:yellow;
+font-size:30px;
+
+}
+
+.question{
+position:absolute;
+width:30%;
+height:70%;
+margin-top:10%;
+margin-left:3%;
+color:blue;
+font-size:30px;
+background-color:white;
+}
+.question form{
+position:absolute;
+width:100%;
+height:100%;
+
+}
+
+.question form #l0{
+margin-left:1px;
+position:absolute;
+width:100%;
+height:10%;
+padding-left:15%;
+background-color:orange;
+}
+.question form #l1{
+margin-left:1px;
+position:absolute;
+width:100%;
+height:10%;
+margin-top:11%;
+padding-top:1%;
+padding-left:1%;
+font-size:20px;
+}
+.question form #txt1{
+margin-left:1px;
+position:absolute;
+width:95%;
+height:9%;
+margin-top:19%;
+margin-left:2%;
+margin-right:2%;
+padding-left:2%;
+padding-right:2%;
+font-size:20px;
+}
+.question form #l2{
+margin-left:1px;
+position:absolute;
+width:100%;
+height:10%;
+margin-top:33%;
+padding-top:1%;
+padding-left:1%;
+font-size:20px;
+}
+.question form #txt2{
+margin-left:1px;
+position:absolute;
+width:95%;
+height:9%;
+margin-top:42%;
+margin-left:2%;
+margin-right:2%;
+padding-left:2%;
+padding-right:2%;
+font-size:20px;
+}
+
+.question form #l3{
+margin-left:1px;
+position:absolute;
+width:100%;
+height:10%;
+margin-top:58%;
+
+padding-left:1%;
+font-size:20px;
+}
+.question form #txt3{
+margin-left:1px;
+position:absolute;
+width:95%;
+height:9%;
+margin-top:66%;
+margin-left:2%;
+margin-right:2%;
+padding-left:2%;
+padding-right:2%;
+font-size:20px;
+}
+.question form #calculate{
+margin-left:1px;
+position:absolute;
+width:95%;
+height:9%;
+margin-top:80%;
+margin-left:2%;
+margin-right:2%;
+padding-left:2%;
+padding-right:2%;
+font-size:20px;
+background-color:green;
+}
+.question #clear{
+margin-left:1px;
+position:absolute;
+width:95%;
+height:9%;
+margin-top:95%;
+margin-left:2%;
+margin-right:2%;
+padding-left:2%;
+padding-right:2%;
+font-size:20px;
+background-color:yellow;
+}
+.answer{
+position:absolute;
+width:55%;
+height:70%;
+margin-top:10%;
+margin-left:39%;
+background-color:white;
+
+}
+.answer #l4{
+position:fixed;
+width:55%;
+height:7%;
+font-size:30px;
+background-color:orange;
+text-align:center;
+}
+
+
+
+.answer .answerContent{
+position:absolute;
+width:100%;
+height:89%;
+margin-top:7%;
+overflow:auto;
+}
+
+.answer .answerContent table,th,td {
+border:1px solid ;
+margin-left:3%;
+text-align:center;
+}
+
+.answer .answerContent #givenData{
+width:45%;
+}
+.answer .answerContent #givenDataHeading{
+font-weight:bold;
+font-size:20px;
+margin-left:3%;
+}
+.answer .answerContent #sequenceTableHeading{
+font-weight:bold;
+font-size:20px;
+margin-left:3%;
+}
+
+.answer .answerContent #TableToCalculateIdleTimeForBothMachinesHeading{
+font-weight:bold;
+font-size:20px;
+margin-left:3%;
+
+}
+
+
+.answer .answerContent #TableToCalculateIdleTimeForBothMachines{
+
+width:45%;
+}
+
+.answer .answerContent #IdleTimeForMachineM1{
+margin-left:3%;
+}
+.answer .answerContent #IdleTimeForMachineM2{
+margin-left:3%;
+}
+.answer .answerContent #PercentageUtilizationofMachineM1{
+margin-left:3%;
+}
+.answer .answerContent #PercentageUtilizationofMachineM2{
+margin-left:3%;
+margin-bottom:3%;
+}
+
+.pdf{
+position:absolute;
+top:1px;
+height:10%;
+width:7%;
+left:93%;
+
+}
+.pdf form #txt11,#txt12,#txt13{
+visibility:hidden;
+}
+
+.pdf form #pdfbutton{
+background-color:blue;
+width:100%;
+height:100%;
+border-radius:5px;
+color:yellow;
+}
+.motto{
+position:absolute;
+width:25%;
+height:30%;
+padding-top:2%;
+background-color:blue;
+color:orange;
+margin-left:40%;
+font-size:30px;
+}
+#LordGanesh{
+position:absolute;
+width:6%;
+height:70%;
+left:30%;
+
+}
+#LordSaraswati{
+position:absolute;
+width:6%;
+height:70%;
+left:65%;
+
+}
+#swastika{
+position:absolute;
+width:3%;
+height:40%;
+left:1%;
+top:15%;
+
+}
+
+.header span{
+position:absolute;
+width:15%;
+height:80%;
+margin-top:2%;
+margin-left:100px;
+color:orange;
+font-size:20px;
+}
+

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+<style>
+
+    table ,th ,td{
+    position:absolute;
+    background-color:pink;
+    text-align:center;
+    font-size:18px;
+    padding-top:5px;
+    }
+
+</style>
+
+
+
+</head>
+<body>
+<h1 style="font-size:6">Given Problem </h1>
+<table border="1">
+    <thead><tr><th>Jobs</th><th>M1</th><th>M2</th></tr></thead>
+    <tbody>
+        {% for job,m1,m2 in mylist %}
+        <tr><td > {{job}} </td>
+            <td > {{m1}}</td>
+            <td >{{m2}}</td>
+        </tr>
+        {% endfor %}
+
+    </tbody>
+
+</table><br>
+<h1 style="font-size:25px; font-weight:bold">Job Sequence for the given problem will be</h1>
+<table border="1" >
+    <tr><th> Jobs </th>
+    {% for sequence in sequences %}
+    <td> {{sequence}} </td>
+    {% endfor %}
+    </tr>
+</table><br>
+<h1 style="font-size:25px; font-weight:bold">Table to calculate Idle time for both machines</h1>
+<table border="1">
+    <thead><tr><th>Jobs</th><th>M1in</th><th>M1out</th><th>M2in</th><th>M2out</th></tr></thead>
+    <tbody>
+    {% for Job, m1in,m1out,m2in,m2out in group %}
+    <tr>
+        <td>{{Job}}</td><td>{{m1in}}</td><td>{{m1out}}</td><td>{{m2in}}</td><td>{{m2out}}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+<br>
+<h1 style="font-size:20px; ">Idle time for Machine M1 = {{ITM1}}</h1>
+<h1 style="font-size:20px; ">Idle time for Machine M2 = {{ITM2}}</h1>
+<h1 style="font-size:20px; ">Percentage Utilization of Machine M1 =  {{pum1}} %</h1>
+<h1 style="font-size:20px; ">Percentage Utilization of Machine M2 =  {{pum2}} %</h1>
+
+</body>
+</html>
+

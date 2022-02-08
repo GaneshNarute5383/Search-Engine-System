@@ -1,0 +1,137 @@
+
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+<title>Welcome to Epavitram</title>
+
+ <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/same.css' %}">
+    <link rel = "icon" href ="{% static 'image/swastika.jpg'%}" type = "image/x-icon">
+    <script src="{% static 'javascript/all.min.js' %}"></script>
+    <script src="{% static 'javascript/bootstrap.min.js' %}"></script>
+    <script src="{% static 'javascript/jquery-3.6.0.min.js' %}"></script>
+ <link rel="stylesheet" href="{% static 'css/home.css' %}">
+
+</head>
+<body>
+
+
+    <script>
+   jQuery(document).ready(function(){
+    $("input").keyup(function(){
+    var query=$("#userinput").val();
+    if (query !='')
+    {
+            $.ajax({url:"/ajax/",
+            type:"GET",
+            data:{q:query},
+            success:function(response)
+            {
+              $(".autosuggestion").html(response);
+              $(".autosuggestion").fadeIn(300);
+
+            }
+            });
+     }else{
+                  $(".autosuggestion").fadeOut();
+                  $(".autosuggestion").html("");
+
+          }
+    });
+    $(document).on("click","li",function(){
+    $("#userinput").val($(this).text());
+    $(".autosuggestion").fadeOut();
+
+    });
+    $('#epavitramApps').mouseenter(function(){
+    $('.titleIcon').show(function(){
+    $('.titleIcon').text("ePavitram Apps");
+
+    });
+    });
+    $('#epavitramApps').mouseleave(function(){
+      $('.titleIcon').show(function(){
+          $('.titleIcon').text("");
+      })
+    });
+   });
+
+
+</script>
+
+<div class="searchBox">
+    <img alt="" src="{% static 'image/swastika.jpg' %}">
+    <h1>ePavitram</h1>
+    <form action="{% url 'search' %}" method="GET" autocomplete="off" id="form-id">
+    {% csrf_token%}
+    <input type="text"  name="userinput" id="userinput" placeholder="Type to search">
+    <button type="submit " id="search" name="search" >Search</button>
+</form>
+
+<div class="autosuggestion">
+
+</div>
+
+</div>
+
+<div class="verticalBar">
+<a class="btn btn-primary" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+  <i class="fas fa-align-justify"></i>
+</a>
+<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasExampleLabel">Menu</h5>
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+   <nav class="nav flex-column">
+         <a class="nav-link active" aria-current="page" href="{% url 'home' %}">home</a>
+       <a class="nav-link active" aria-current="page" href="{% url 'about' %}">about</a>
+       <a class="nav-link active " aria-current="page" href="{% url 'privacy' %}">privacy</a>
+       <a class="nav-link active" aria-current="page" href="{% url 'policy' %}">policy</a>
+       <a class="nav-link active" aria-current="page" href="{% url 'console' %}">console</a>
+       <a class="nav-link active" aria-current="page" href="{% url 'contact' %}">contact</a>
+       <a class="nav-link active" aria-current="page" href="{% url 'feedback' %}">feedback</a>
+
+
+</nav>
+  </div>
+</div>
+</div>
+
+<div class="studytool">
+
+
+
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  <img id="epavitramApps" src="{% static 'image/peacock.jpeg' %}">
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 ><center>ePavitram apps</center></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        <a href="{% url 'n_jobs_on_two_machiens' %}" ><img id="img1" src="{% static 'image/NJobsOnTwoMachiens.JPG'%}"/></a>
+          <a><img id="img2" src="{% static 'image/NjobsThreeMachiens.JPG'%}"/></a>
+          <a href="{% url 'gameTheory' %}" ><img id="gametheory" src="{% static 'image/gametheory.JPG'%}"/></a>
+
+
+
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<div class="titleIcon"></div>
+</body>
+</html>

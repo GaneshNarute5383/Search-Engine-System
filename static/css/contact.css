@@ -1,0 +1,125 @@
+body{
+}
+.login-form{
+position: absolute;
+width: 50%;
+height:80%;
+margin-left: 30%;
+margin-top:2%;
+
+}
+.login-form #l1{
+position: absolute;
+width: 100%;
+height: 5%;
+top: 2%;
+left: 25%;
+color:red;
+font-size:30px;
+}
+.login-form #l2{
+position: absolute;
+width: 100%;
+height: 5%;
+top: 24%;
+left: 5%;
+color:red;
+font-size:15px;
+visibility:hidden;
+}
+
+
+.login-form #l3{
+position: absolute;
+width: 100%;
+height: 5%;
+top: 38%;
+left: 5%;
+color:red;
+font-size:15px;
+visibility:hidden;
+}
+
+
+.login-form #l4{
+position: absolute;
+width: 100%;
+height: 5%;
+top: 48%;
+left: 5%;
+color:red;
+font-size:15px;
+visibility:hidden;
+}
+.login-form #l5{
+position: absolute;
+width: 100%;
+height: 5%;
+top: 77%;
+left: 5%;
+color:red;
+font-size:15px;
+visibility:hidden;
+}
+
+
+
+
+
+.login-form form{
+
+position: absolute;
+width: 100%;
+height: 100%;
+padding-right:2%;
+margin-top:0%;
+margin-right:0%;
+margin-left:0%;
+
+}
+.login-form form #fullname{
+position: absolute;
+width: 60%;
+height:8%;
+margin-left:5%;
+margin-top:12%;
+padding-left:2%;
+
+
+}
+.login-form form #email{
+position: absolute;
+top:30%;
+width: 60%;
+height:8%;
+margin-left:5%;
+padding-left:2%;
+
+}
+
+.login-form form #subject{
+position: absolute;
+top:45%;
+width: 60%;
+height:8%;
+margin-left:5%;
+padding-left:2%;
+
+}
+.login-form form #message{
+position: absolute;
+top:60%;
+width: 60%;
+height:15%;
+margin-left:5%;
+padding-left:2%;
+
+}
+.login-form form #button{
+position: absolute;
+top:85%;
+width: 60%;
+height:8%;
+margin-left:5%;
+}
+

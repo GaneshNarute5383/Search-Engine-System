@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>contact</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/same.css' %}">
+    <link rel="stylesheet" href="{% static 'css/contact.css' %}">
+
+    <link rel = "icon" href ="{% static 'image/swastika.jpg'%}" type = "image/x-icon">
+    <script src="{% static 'javascript/all.min.js' %}"></script>
+    <script src="{% static 'javascript/bootstrap.min.js' %}"></script>
+    <script src="{% static 'javascript/jquery-3.6.0.min.js' %}"></script>
+    <script src="{% static 'javascript/popper.min.js' %}"></script>
+</head>
+<body>
+
+
+<div>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container-fluid">
+       <a class="navbar-brand" href="#">
+      <img src="{% static 'image/swastika.jpg'%}" alt="swastika" >
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+        </li>
+          <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'about' %}">About </a>
+        </li>
+          <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'privacy' %}">Privacy</a>
+        </li>
+           <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'policy' %}">Policy</a>
+        </li>
+          <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'check_console' %}">Console</a>
+        </li>
+          <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'contact' %}">Contact</a>
+        </li>
+          <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'feedback' %}">Feedback</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+</div>
+<span class="pen">
+    © Copyright 2021 All Rights Reserved ePavitram
+</span>
+
+<script>
+    jQuery("document").ready(function(){
+    $("#fullname").keyup(function(){
+        	 var reg=/^[a-zA-Z\s]{1,}$/
+        	 var name=$("#fullname").val();
+			 if(reg.test(name))
+			 {
+			     $("#l2").text("");
+
+			 }
+			 else{
+			     $("#l2").text("Please enter valid name");
+				 document.getElementById("l2").style.visibility="visible";
+			     $("#l2").style.color="red";
+
+			 }
+    });
+    $("#email").keyup(function(){
+        	 var reg=/^([a-zA-Z0-9\.-]+)@([a-zA-Z0-9-]+).([a-z]{2,8})$/;
+        	 var email=$("#email").val();
+			 if(reg.test(email))
+			 {
+			     $("#l3").text("");
+			 }
+			 else{
+
+			     $("#l3").text("Please enter valid email");
+				 document.getElementById("l3").style.visibility="visible";
+			     $("#l3").style.color="red";
+
+			 }
+    });
+    });
+            function validate() {
+            if (document.forms["myform"]["fullname"].value == "") {
+                alert("please enter the  name");
+                return false;
+            }
+
+            if (document.forms["myform"]["email"].value == "") {
+                alert("please enter the email id");
+                return false;
+            }
+
+            if (document.forms["myform"]["subject"].value == "") {
+                alert("please enter the subject");
+                return false;
+            }
+            if (document.forms["myform"]["message"].value == "") {
+                alert("please enter the message");
+                return false;
+            }
+}
+
+
+
+
+
+
+</script>
+    <div class="login-form">
+        <form action="{% url 'getcontact' %}" name="myform" method="GET" autocomplete="off"  onsubmit="return validate()">
+           {% csrf_token %}
+            <label name="l1" id="l1" >Contact Us</label>
+            <input type="text" name="fullname" id="fullname" placeholder="Enter the full name...">
+            <label name="l2" id="l2" ></label>
+            <input type="email" name="email" id="email" placeholder="Enter the email...">
+            <label name="l3" id="l3" >email</label>
+            <input type="text" name="subject" id="subject" placeholder="Enter the subject">
+            <label name="l4" id="l4" >subject</label>
+            <textarea name="message" id="message" rows="10" cols="30" placeholder="Enter the message..."  ></textarea>
+            <label name="l5" id="l5" >message</label>
+            <button type="submit"  id="button">Send</button>
+
+        </form>
+
+</div>
+
+
+
+</body>
+</html>

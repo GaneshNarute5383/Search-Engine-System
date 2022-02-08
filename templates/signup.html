@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>signup</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/same.css' %}">
+    <link rel="stylesheet" href="{% static 'css/signup.css' %}">
+
+    <link rel = "icon" href ="{% static 'image/swastika.jpg'%}" type = "image/x-icon">
+    <script src="{% static 'javascript/all.min.js' %}"></script>
+    <script src="{% static 'javascript/bootstrap.min.js' %}"></script>
+    <script src="{% static 'javascript/jquery-3.6.0.min.js' %}"></script>
+    <script src="{% static 'javascript/popper.min.js' %}"></script>
+</head>
+<body>
+
+
+<div>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container-fluid">
+       <a class="navbar-brand" href="#">
+      <img src="{% static 'image/swastika.jpg'%}" alt="swastika" >
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+        </li>
+          <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'about' %}">About </a>
+        </li>
+          <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'privacy' %}">Privacy</a>
+        </li>
+           <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'policy' %}">Policy</a>
+        </li>
+          <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'check_console' %}">Console</a>
+        </li>
+          <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'contact' %}">Contact</a>
+        </li>
+          <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'feedback' %}">Feedback</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+</div>
+<span class="pen">
+    © Copyright 2021 All Rights Reserved ePavitram
+</span>
+
+<script>
+    jQuery("document").ready(function(){
+    $("#fname").keyup(function(){
+        	 var reg=/^[a-zA-Z]{3,12}$/
+        	 var name=$("#fname").val();
+			 if(reg.test(name))
+			 {
+			     $("#l2").text("");
+
+			 }
+			 else{
+			     $("#l2").text("enter valid name");
+				 document.getElementById("l2").style.visibility="visible";
+			     $("#l2").style.color="red";
+
+			 }
+    });
+     $("#mname").keyup(function(){
+        	 var reg=/^[a-zA-Z]{3,12}$/
+        	 var name=$("#mname").val();
+			 if(reg.test(name))
+			 {
+			     $("#l3").text("");
+
+			 }
+			 else{
+			     $("#l3").text("enter valid name");
+				 document.getElementById("l3").style.visibility="visible";
+			     $("#l3").style.color="red";
+
+			 }
+    });
+
+     $("#lname").keyup(function(){
+        	 var reg=/^[a-zA-Z]{3,12}$/
+        	 var name=$("#lname").val();
+			 if(reg.test(name))
+			 {
+			     $("#l4").text("");
+
+			 }
+			 else{
+			     $("#l4").text("enter valid name");
+				 document.getElementById("l4").style.visibility="visible";
+			     $("#l4").style.color="red";
+
+			 }
+    });
+
+      $("#email").keyup(function(){
+        	 var reg=/^([a-zA-Z0-9\.-]+)@([a-zA-Z0-9-]+).([a-z]{2,8})$/;
+        	 var email=$("#email").val();
+			 if(reg.test(email))
+			 {
+			     $("#l5").text("");
+			 }
+			 else{
+
+			     $("#l5").text("Please enter valid email");
+				 document.getElementById("l5").style.visibility="visible";
+			     $("#l5").style.color="red";
+
+			 }
+    });
+
+      $("#mobile").keyup(function(){
+        	 var reg=/^[7-9][0-9]{9}$/;
+        	 var mobile=$("#mobile").val();
+			 if(reg.test(mobile))
+			 {
+			     $("#l6").text("");
+			 }
+			 else{
+
+			     $("#l6").text("Please enter mobile number");
+				 document.getElementById("l6").style.visibility="visible";
+			     $("#l6").style.color="red";
+
+			 }
+    });
+
+     $("#pwd").keyup(function(){
+        	  var reg=/^[A-Za-z0-9!@#\$%\^\&*]{7,13}$/;
+        	 var pwd=$("#pwd").val();
+			 if(reg.test(pwd))
+			 {
+			     $("#l7").text("");
+			 }
+			 else{
+
+			     $("#l7").text("length of password should be greater than 7 or less than 13 characters");
+				 document.getElementById("l7").style.visibility="visible";
+			     $("#l7").style.color="red";
+
+			 }
+    });
+
+    $("#conpass").keyup(function(){
+
+        	 var str1=$("#pwd").val();
+        	 var str2=$("#conpass").val();
+<!--        	 console.log(str1);-->
+<!--        	 console.log(str2);-->
+<!--        	 console.log(str1===str2);-->
+<!--        	 const result = str1.toUpperCase()===str2.toUpperCase();-->
+			 if(str1==str2)
+			 {
+			     $("#l8").text("");
+			 }
+			 else{
+
+			     $("#l8").text("password does not match");
+				 document.getElementById("l8").style.visibility="visible";
+			     $("#l8").style.color="red";
+
+			 }
+    });
+
+
+    });
+            function validate() {
+            if (document.forms["myform"]["fname"].value == "") {
+                alert("please enter the first name");
+                return false;
+            }
+
+            if (document.forms["myform"]["mname"].value == "") {
+                alert("please enter the middle name");
+                return false;
+            }
+
+            if (document.forms["myform"]["lname"].value == "") {
+                alert("please enter the last name");
+                return false;
+            }
+            if (document.forms["myform"]["email"].value == "") {
+                alert("please enter the email");
+                return false;
+            }
+
+             if (document.forms["myform"]["mobile"].value == "") {
+                alert("please enter the mobile number");
+                return false;
+            }
+             if (document.forms["myform"]["pwd"].value == "") {
+                alert("please enter the password");
+                return false;
+            }
+            if (document.forms["myform"]["conpass"].value == "") {
+                alert("please enter the confirm password");
+                return false;
+            }
+}
+
+</script>
+    <div class="login-form">
+        <form action="{% url 'getsignup' %}" name="myform" method="GET" autocomplete="off"  onsubmit="return validate()">
+            {% csrf_token %}
+            <label name="l1" id="l1" >Sign Up</label>
+            <input type="text" name="fname" id="fname" placeholder="First Name" >
+            <label name="l2" id="l2" >fname</label>
+            <input type="text" name="mname" id="mname" placeholder="Middle Name" >
+            <label name="l3" id="l3" >mname</label>
+            <input type="text" name="lname" id="lname" placeholder="Last Name" >
+            <label name="l4" id="l4" >lname</label>
+
+            <input type="email" name="email" id="email" placeholder="Enter the email">
+            <label name="l5" id="l5" >email</label>
+            <input type="text" name="mobile" id="mobile"  placeholder="Enter the Mobile number">
+            <label name="l6" id="l6" >phone</label>
+            <input type="password" name="pwd" id="pwd"  placeholder="Enter the password">
+            <label name="l7" id="l7" >Password</label>
+            <input type="password" name="conpass" id="conpass" placeholder="Enter the confirm password">
+            <label name="l8" id="l8" >Confirm Password</label>
+
+
+            <button type="submit"  id="button">Sign In</button>
+
+        </form>
+
+</div>
+
+
+
+</body>
+</html>

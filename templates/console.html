@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>console</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/same.css' %}">
+    <link rel="stylesheet" href="{% static 'css/console.css' %}">
+
+    <link rel = "icon" href ="{% static 'image/swastika.jpg'%}" type = "image/x-icon">
+    <script src="{% static 'javascript/all.min.js' %}"></script>
+    <script src="{% static 'javascript/bootstrap.min.js' %}"></script>
+    <script src="{% static 'javascript/jquery-3.6.0.min.js' %}"></script>
+    <script src="{% static 'javascript/popper.min.js' %}"></script>
+</head>
+<body>
+
+
+<div>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container-fluid">
+       <a class="navbar-brand" href="">
+      <img src="{% static 'image/swastika.jpg'%}" alt="swastika" >
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+        </li>
+          <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'about' %}">About </a>
+        </li>
+          <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'privacy' %}">Privacy</a>
+        </li>
+           <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'policy' %}">Policy</a>
+        </li>
+          <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'console' %}">Console</a>
+        </li>
+          <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'contact' %}">Contact</a>
+        </li>
+          <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'feedback' %}">Feedback</a>
+        </li>
+         </li>
+          <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'log_out' %}">Log out</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+</div>
+<span class="pen">
+    © Copyright 2021 All Rights Reserved ePavitram
+</span>
+
+<script>
+    jQuery("document").ready(function(){
+    $("#url").keyup(function(){
+        	 var reg=/(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/gi;
+
+        	 var url=$("#url").val();
+        	 console.log("ram krishna hari")
+			 if(reg.test(url))
+			 {
+			     $("#l4").text("");
+
+			 }
+			 else{
+			     $("#l4").text("Please enter valid url");
+				 document.getElementById("l4").style.visibility="visible";
+			     $("#l4").style.color="red";
+
+			 }
+    });
+
+    });
+            function validate() {
+            if (document.forms["myform"]["url"].value == "") {
+                alert("please enter the url");
+                return false;
+            }
+
+            if (document.forms["myform"]["sitemap"].value == "") {
+                alert("please enter the sitemap");
+                return false;
+            }
+            }
+
+</script>
+    <div class="login-form">
+        <form action="{% url 'getsitemap' %}" name="myform" method="GET" autocomplete="off"  onsubmit="return validate()">
+            {% csrf_token %}
+            <label name="l1" id="l1" >ePavitram console</label>
+            <label name="l2" id="l2" >URL</label>
+            <input type="text" name="url" id="url" placeholder="Enter the URL">
+            <label name="l3" id="l3" >Sitemap</label>
+            <input type="text" name="sitemap" id="sitemap" placeholder="Enter the sitemap">
+            <label name="l4" id="l4" >url</label>
+            <button type="submit"  id="button">Submit</button>
+
+        </form>
+
+</div>
+
+</body>
+</html>

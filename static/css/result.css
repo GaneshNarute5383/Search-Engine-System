@@ -1,0 +1,191 @@
+body{
+display: flex;
+flex-direction: column;
+height:100vh;
+background-color:aliceblue ;
+}
+.headersearch{
+     position: fixed;
+     width: 100%;
+     height: 15%;
+     background-color:blue;
+}
+
+.headersearch input {
+width:49%;
+height:4%;
+margin-top:1%;
+margin-left:25%;
+padding-top:1%;
+padding-bottom:1%;
+padding-right:1%;
+padding-left:2%;
+border-radius:40px;
+outline:none;
+border:none;
+font-size:20px;
+}
+
+.headersearch #clearButton{
+   visibility: visible;
+    position: absolute;
+    left: 1030px;
+    top: 15%;
+    font-size: 20px;
+    line-height: 50px;
+    width: 52px;
+    height: 49px;
+    margin: 1;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    background:white;
+}
+
+
+
+.headersearch #SearchButton {
+   visibility: visible;
+    position: absolute;
+    left: 1063px;
+    top: 15%;
+    font-size: 20px;
+    line-height: 50px;
+    width: 52px;
+    height: 49px;
+    margin: 1;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    background:white;
+}
+
+
+
+
+
+
+
+.icon{
+position:absolute;
+width: 4%;
+height: 55%;
+left: 3%;
+top:8px;
+margin-top:5px;
+border-radius:10px;
+background-color:orange;
+}
+.icon img{
+position:absolute;
+width:83%;
+height: 78%;
+left: 8%;
+top:10%;
+padding-top:1px;
+padding-bottom:1px;
+padding-left: 1px;
+padding-right: 1px;
+border-radius:10px;
+}
+
+
+
+
+table{
+margin-left: 25%;
+width: 48%;
+height: 20%;
+background-color:rgb(180, 202, 248);
+border-radius:12px;
+outline: none;
+padding-left: 10px;
+
+}
+table td{
+padding-left: 10px;
+
+}
+
+a:hover{
+color:rgb(253, 63, 253);
+text-decoration: none;
+}
+
+.resultCount{
+position:fixed;
+width:15%;
+height:15%;
+top:16%;
+left:85%;
+background-color:yellow;
+font-size: 20px;
+border-radius:10px;
+}
+.resultHeading
+{
+position:fixed;
+width:50%;
+height:4%;
+top:16%;
+left:25%;
+background-color:rgb(70, 255, 14);
+font-size: 20px;
+border-radius:10px;
+padding-left:1%;
+padding-bottom:2px;
+}
+
+a{
+text-decoration:none;
+}
+.paginationClass{
+position:relative;
+width:20%;
+height:2%;
+left:40%;
+
+}
+.footer
+{
+width:100%;
+height:10%;
+margin-top:auto;
+background-color:rgb(180, 202, 248);;
+}
+.footer p{
+font-size:20px;
+text-align:center;
+line-height:80px;
+}
+
+.HeadingTitle {
+position:fixed;
+left:9%;
+top:1%;
+color:orange;
+font-size: 50px;
+}
+
+.autosuggestion{
+position:absolute;
+width:50%;
+height:60%;
+top:70.4px;
+left:25%;
+
+
+}
+ul{
+background-color:pink;
+cursor:pointer;
+border-radius:20px;
+list-style:none;
+}
+li{
+padding:3px;
+text-align:left;
+}
+li:hover{
+background-color:rgb(238, 218, 184);
+}
